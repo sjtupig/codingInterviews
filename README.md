@@ -1,2 +1,1 @@
-# -剑指offer的python实现-
-
+# 剑指offer的python实现
