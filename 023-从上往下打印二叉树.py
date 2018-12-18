@@ -17,8 +17,8 @@ class Solution:
             t = deque[0]
             del deque[0] #出队
             if t.left:
-                deque.append(t.left)
+                deque.append(t.left)#入队
             if t.right:
-                deque.append(t.right)
+                deque.append(t.right)#入队
             res.append(t.val)
         return res
