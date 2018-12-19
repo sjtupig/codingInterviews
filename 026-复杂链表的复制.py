@@ -80,7 +80,24 @@ class Solution4:
     def Clone(self, pHead):
         
         return copy.deepcopy(pHead)
+'''
+直接赋值：其实就是对象的引用（别名）。
 
+浅拷贝(copy)：拷贝父对象，不会拷贝对象的内部的子对象。
+
+深拷贝(deepcopy)： copy 模块的 deepcopy 方法，完全拷贝了父对象及其子对象。 
+参考: 
+
+https://docs.python.org/2/library/copy.html
+
+http://www.runoob.com/w3cnote/python-understanding-dict-copy-shallow-or-deep.html
+关于deepcopy这个博客也解释的很详细
+
+https://blog.csdn.net/qq_32907349/article/details/52190796
+
+
+
+'''
 #测试代码
 class RandomListNode:
      def __init__(self, x):
