@@ -59,3 +59,55 @@ sol = Solution()
 data = [4,2,5,3]
 print(sol.InversePairs(data))
 print(data)
+
+#一下为非递归写法
+class Solution:
+    def __init__(self):
+        self.cnt = 0
+
+    def InversePairs(self, data):
+        def merge(data, l, mid, r):
+            #global cnt
+            print('l:',l,'mid:',mid,'r:',r)
+            left = [data[i] for i in range(l,mid+1) if i < len(data)]
+            right = [data[i] for i in range(mid+1,r+1) if i < len(data)]
+            print('before,data[l:r+1]',data[l:r+1])
+            print('before,left:',left)
+            print('before,right:', right)
+            index_left,index_right=0,0
+            l_len,r_len = len(left), len(right)
+            t = l
+            #print('l',l)
+            while index_left < l_len and index_right < r_len:
+                #print('index_left:',index_left,'index_right:',index_right,'left[index_left]:',left[index_left],'right[index_right]',right[index_right])
+                if left[index_left] <= right[index_right]:
+                    data[t] = left[index_left]
+                    t += 1
+                    index_left+= 1
+                else:
+                    self.cnt = (self.cnt%1000000007 + l_len-index_left%1000000007)%1000000007 #注意这里不是+1，事实上由于left[index_left]>right[index_right],index_left之后的数都会大于right[index_right]
+                    data[t] = right[index_right]
+                    t +=1
+                    index_right += 1
+                
+                #print('self.cnt:',self.cnt)
+            while index_left < l_len:
+                data[t] = left[index_left]
+                t+=1
+                index_left+=1
+            while index_right < r_len:
+                data[t] = right[index_right]
+                t+=1
+                index_right+=1
+        len_sort = 1#排序小区间的长度
+        while len_sort <= len(data):
+            i = 0
+            while i < len(data):
+                l = i
+                mid = i+len_sort-1
+                r = mid+1+len_sort-1
+                merge(data, l, mid, r)
+                i = r+1
+            len_sort *= 2
+            #print(len_sort)
+        return self.cnt 
