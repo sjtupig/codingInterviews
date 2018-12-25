@@ -30,5 +30,8 @@ class Solution:
         
         return ''.join(arrays)
 
+#此外，还可以把两个字符串拼起来，再操作，s='1234', ss='12341234'
+##注意！！！！切片得到的结果，不是对象的引用，对切片结果的改变，不会反映在原对象上
+
 sol = Solution()
 print sol.LeftRotateString('1234', 2)
