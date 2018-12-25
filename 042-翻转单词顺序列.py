@@ -34,6 +34,26 @@ class Solution:
             words_char = list(i)
             words_new.append(''.join(reverse(words_char)))
         return ''.join(reverse(list(' '.join(words_new))))
+class Solution:
+    def ReverseSentence(self, s):
+        # write code here
+        #python的字符串翻转用切片来做
+        words = s.split(' ')
+        for i, val in  enumerate(words):
+            words[i] = val[::-1]
+        return (' '.join(words))[::-1]
+
+class Solution:
+    def ReverseSentence(self, s):
+        # write code here
+        #还可以用栈来做
+        stack = []
+        res = []
+        for i in s.split(' '):
+            stack.append(i)
+        while stack:
+            res.append(stack.pop())
+        return (' '.join(res))
 sol = Solution()
 s = 'student. a am I'
 print sol.ReverseSentence(s)
