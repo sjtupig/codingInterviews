@@ -2,6 +2,10 @@
 class Solution:
     def StrToInt(self, s):
         # write code here
+        '''
+        需要考虑一些边界情况：  '        +1', '+', '        ', '++3', '123-2'
+
+        '''
         if s.strip() == '':return 0
         if len(s.strip()) == 1 and s.strip()[0] in ('+','-'):return 0  # ++123会在下面剔除
         s_list = list(s.strip())
