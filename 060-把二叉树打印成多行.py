@@ -10,8 +10,8 @@ class Solution:
         # write code here
         if not pRoot:return []
         res = []
-        now = [pRoot] if pRoot else []
-        nexts = []
+        now = [pRoot] if pRoot else [] #当前行
+        nexts = []  #下一行
         #这里默认了pRoot不为空，所以在一开始判断若pRoot为空，直接返回
         if pRoot.left: nexts.append(pRoot.left) 
         if pRoot.right: nexts.append(pRoot.right) 
